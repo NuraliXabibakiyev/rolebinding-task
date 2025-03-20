@@ -1,0 +1,123 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-03-20T05:53:25Z"
+  generateName: pod-checker-698fbb5886-
+  labels:
+    app: pod-checker
+    pod-template-hash: 698fbb5886
+  name: pod-checker-698fbb5886-f8h8s
+  namespace: practice-nurali
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: pod-checker-698fbb5886
+    uid: 1bfd2d90-7079-4ae7-8190-01a08edd3b02
+  resourceVersion: "10765043"
+  uid: 401a0600-d806-4ce0-baab-f27fb4e0bef3
+spec:
+  containers:
+  - args:
+    - -c
+    - sleep 3600
+    command:
+    - /bin/sh
+    image: nurali1996/rolebinding:v1
+    imagePullPolicy: IfNotPresent
+    name: pod-checker
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-r2fl5
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: node3
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-r2fl5
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-20T05:53:26Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-20T05:53:26Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-20T05:53:26Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-20T05:53:26Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-20T05:53:26Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://eb7820cd5ce90b60e81f8875b3517b561dc4c5522a681cbcddc8a16560f4796c
+    image: docker.io/nurali1996/rolebinding:v1
+    imageID: docker.io/nurali1996/rolebinding@sha256:0d1aa87f3b46a88832776d6bbba7eb6f974c59c6da73747106ca7f572f9c2c38
+    lastState: {}
+    name: pod-checker
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2025-03-20T05:53:26Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-r2fl5
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 65.21.148.14
+  hostIPs:
+  - ip: 65.21.148.14
+  phase: Running
+  podIP: 10.233.67.207
+  podIPs:
+  - ip: 10.233.67.207
+  qosClass: BestEffort
+  startTime: "2025-03-20T05:53:26Z"

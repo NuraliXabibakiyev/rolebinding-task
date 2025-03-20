@@ -1,0 +1,3 @@
+NAME                                READY   STATUS    RESTARTS      AGE
+pod-checker-698fbb5886-f8h8s        1/1     Running   2 (56m ago)   176m
+redis-deployment-748ffbc5f5-xmvwm   1/1     Running   0             3h21m

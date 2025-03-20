@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2025-03-20T04:52:44Z"
+  name: service-account
+  namespace: practice-nurali
+  resourceVersion: "10751380"
+  uid: d432a0f8-c0b4-4f8e-b841-e4b0bbee4aa2

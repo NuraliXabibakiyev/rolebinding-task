@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-checker
+  namespace: practice-nurali
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-checker
+  template:
+    metadata:
+      labels:
+        app: pod-checker
+    spec:
+      containers:
+        - name: pod-checker
+          image: nurali1996/rolebinding:v1  # Yangi yaratilgan imidj
+          command: ["/bin/sh"]
+          args: ["-c", "sleep 3600"]
